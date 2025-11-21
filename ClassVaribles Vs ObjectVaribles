@@ -1,0 +1,128 @@
+
+# class Dog:
+#     species="mammal"      #class varibles
+    
+#     def __init__(self, name, bread):
+#         self.name=name
+#         self.bread=bread    #object varibles
+        
+#     def details(self):
+#         print(f'The{self.name} of bread {self.bread} is {self.species}')
+            
+# dog1=Dog("Potti", "India")       
+# dog1.details()
+
+# dog2=Dog("Banni", "NewLand")         
+# dog2.details()
+
+
+
+
+
+# class Dog:
+#     species="mammal"      #class varibles
+#     year="2020"
+#     district="Bapatla"
+    
+#     def __init__(self, name, bread):
+#         self.name=name
+#         self.bread=bread    #object varibles
+        
+#     def details(self):
+#         print(f'The{self.name} of bread {self.bread} The year born {self.year} The is area {self.district} is {self.species}')
+            
+# dog1=Dog("Potti", "India")       
+# dog1.details()
+
+# dog2=Dog("Banni", "NewLand")         
+# dog2.details()
+
+
+
+
+
+# # # ENCAPUSLATION:-
+
+
+# class Account:
+#     def __init__(self, name, balance, details ):
+#         self.name=name                #public
+#         self.__balance=balance         #private
+#         self._details=details            #product
+#     def deposit(self, amount):
+#         self.__balance+=amount
+        
+#     def withdraw(self, amount):
+#         self.__balance-=amount
+        
+#     def details(self, details):
+#         self._balance=details
+        
+#     def checkbalance(self):
+#         print(f'Meeru Thagalettake Migilindi {self.__balance} ')
+        
+# customer1=Account("Dhanesh", 7000) 
+
+
+# print(customer1.name)
+# # print(customer1.__balance)  #This is error   
+
+
+# customer1.deposit(2000)
+# customer1.withdraw(6000)                
+# customer1.checkbalance()   
+
+
+class Car:
+    def __init__(self, brand):
+        self.brand = brand
+        self.engine_on = False
+        self.speed = 120
+        self.gear = 2
+
+    def engine_start(self):
+        if not self.engine_on:
+            self.engine_on = True
+            print(f" {self.brand} engine started.")
+        else:
+            print("Engine is already running.")
+
+    def engine_stop(self):
+        if self.engine_on:
+            self.engine_on = False
+            self.speed = 125
+            self.gear = 5
+            print(f"{self.brand} engine stopped.")
+        else:
+            print("Engine is already off.")
+
+    def change_gear(self, gear):
+        if self.engine_on:
+            self.gear = gear
+            print(f"{self.brand} gear changed to {self.gear}.")
+        else:
+            print("Start the engine before changing gears.")
+
+    def accelerate(self, increment=25):
+        if self.engine_on and self.gear > 0:
+            self.speed += increment
+            print(f"{self.brand} accelerated. Speed: {self.speed} km/h")
+        else:
+            print("Can't accelerate. Check engine and gear.")
+
+    def sudden_brake(self):
+        if self.speed > 0:
+            self.speed = 0
+            print(f"{self.brand} applied sudden brake! Car stopped.")
+        else:
+            print("Car is already stopped.")
+
+
+# Example usage
+my_car = Car("BMW")
+my_car.engine_start()
+my_car.change_gear(1)
+my_car.accelerate(25)
+my_car.accelerate(50)
+my_car.sudden_brake()
+my_car.engine_stop()
